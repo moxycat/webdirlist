@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{path}}</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <span>{{files}} files, {{dirs}} directories</span>
+        <hr>
+        <div id="listing">
+            <div class="row">
+                <img src="/static/folder.png">
+                <a href="{{('/' / entries[0][0].parent.parent).as_posix()}}">..</a>
+            </div>
+            {% for e, isf, isd in entries %}
+                <div class="row">
+                    {% if isd %}
+                        <img src="/static/folder.png">
+                    {% elif isf %}
+                        <img src="/static/document.png">
+                    {% endif %}
+                    <a href="{{('/' / e).as_posix()}}">{{e.name}}</a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <i>Directory listing of {{path}}</i>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+#listing > a {
+    display: block;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+}
+
+.row > img {
+    max-width: 1rem;
+    max-height: 1rem;
+}
+
+#img-content {
+    max-width: 96dvw;
+    max-height: 96dvh;
+    object-fit: cover;
+}
